@@ -22,12 +22,13 @@ namespace login2
         static string senderaccount;
         static int transactionamount;
         static string date = DateTime.Now.ToString();
-        string custid = "ESB14785";
+        string custid = "ESB39069";
         string receivercustid = "";
         static string receiverEmailId = "";
         static string senderEmailId = "";
         static string receiverName = "";
         static string senderName = "";
+        static int OTP;
         protected void Page_Load(object sender, EventArgs e)
         {
             /*  string name = Request.QueryString["custid"];
@@ -36,10 +37,12 @@ namespace login2
               */
             Button2.Visible = false;
             Response.Write(date);
+           
         }
      
         protected void Button1_Click(object sender, EventArgs e)
         {
+          
             // to fetch detals from Account_Details table
             try
             {
@@ -207,214 +210,228 @@ namespace login2
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            //subtracting from sender
-            try { 
-            Label1.Text = balancecheck.ToString();
-            string name = "ESB45367";
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
 
-            cmd.CommandText = "Update Account_Details set Balance=@amounttosend where Cust_ID=@senderid";
-            cmd.Parameters.AddWithValue("@senderid", custid);
-            balancecheck = balancecheck - Convert.ToInt32(AmountToSend.Text);
-            string amt = Convert.ToString(balancecheck);
-
-            cmd.Parameters.AddWithValue("@amounttosend", amt);
-            cmd.ExecuteNonQuery();
-            Label4.Text = "Balance Left : " + amt;
-            Label3.Text = "Transaction Successful";
-                Label1.Text = "";
-                Label2.Text = "";
-
-        }
-            
-            catch (Exception ex)
+            //OTP verification
+            if (Convert.ToInt32(OTPTextBox.Text) == OTP)
             {
-                Label3.Text = ex.Message;
-            }
-            finally
-            {
-                con.Close();
-            }
-
-            // for checking receiver balance
-            string receiverbalance = "1";
-
-            try
-            {
-           
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
 
 
-                cmd.Parameters.AddWithValue("@receiveract", RecAccount.Text);
-                receiveraccount = RecAccount.Text;
-                cmd.CommandText = "Select Balance from Account_Details where Account_No=@receiveract";
 
-                string s = "sender";
 
-                SqlDataReader r = cmd.ExecuteReader();
-                if (r.Read())
+                //subtracting from sender
+                try
                 {
-                    s = r.GetString(0);
+                    Label1.Text = balancecheck.ToString();
+                    string name = "ESB45367";
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+
+                    cmd.CommandText = "Update Account_Details set Balance=@amounttosend where Cust_ID=@senderid";
+                    cmd.Parameters.AddWithValue("@senderid", custid);
+                    balancecheck = balancecheck - Convert.ToInt32(AmountToSend.Text);
+                    string amt = Convert.ToString(balancecheck);
+
+                    cmd.Parameters.AddWithValue("@amounttosend", amt);
+                    cmd.ExecuteNonQuery();
+                    Label4.Text = "Balance Left : " + amt;
+                    Label3.Text = "Transaction Successful";
+                    Label1.Text = "";
+                    Label2.Text = "";
+
                 }
-                receiverbalance = s;
 
-               
-                
-
-            }
-            catch (Exception ex)
-            {
-                Label5.Text = ex.Message;
-            }
-            finally
-            {
-                con.Close();
-            }
-
-            //adding money to reveiver
-         Label5.Text = "Receiver Balance is " + receiverbalance;
-            try
-            {
-    
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@receiveract", RecAccount.Text);
-               
-                cmd.CommandText = "Update Account_Details set Balance=@amounttosend where Account_No=@receiveract";
-                receiverbalance=Convert.ToString(Convert.ToInt32(receiverbalance)+ Convert.ToInt32(AmountToSend.Text));
-
-                cmd.Parameters.AddWithValue("@amounttosend", receiverbalance);
-                cmd.ExecuteNonQuery();
-                Label5.Text = "Credited to Receiver Successfully!! " + receiverbalance;
-                Label1.Text = "";
-                Label2.Text = "";
-
-            }
-
-            catch (Exception ex)
-            {
-                Label3.Text = ex.Message;
-            }
-            finally
-            {
-                con.Close();
-            }
-
-
-            //entry of credit (senderside) in all_Transactions table
-            try
-            {
-
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@creditaccount", receiveraccount);
-                cmd.Parameters.AddWithValue("@debitaccount", senderaccount);
-                cmd.Parameters.AddWithValue("@amount", transactionamount);
-                cmd.Parameters.AddWithValue("@custid", custid);
-                cmd.Parameters.AddWithValue("@date", date);
-                cmd.Parameters.AddWithValue("@transactiontype", "DEBIT");
-                cmd.Parameters.AddWithValue("@firmname",Firm.Text);
-                cmd.Parameters.AddWithValue("@transactiondetails",Details.Text);
-
-
-                cmd.CommandText = "insert into All_Transactions_New values (@custid,@creditaccount,@debitaccount,@date,@amount,@transactiontype,@firmname,@transactiondetails)";
-
-
-                cmd.ExecuteNonQuery();
-                Label6.Text = "Added entry to all_transactionstable";
-            }
-
-            catch (Exception ex)
-            {
-                Label6.Text = ex.Message;
-            }
-            finally
-            {
-                con.Close();
-            }
-
-            //getting receiver's cust id for adding entry to all_transactions table
-            try
-            {
-
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-
-
-                cmd.Parameters.AddWithValue("@receiveract", RecAccount.Text);
-                receiveraccount = RecAccount.Text;
-                cmd.CommandText = "Select Cust_ID from Account_Details where Account_No=@receiveract";
-
-                string s = "sender";
-
-                SqlDataReader r = cmd.ExecuteReader();
-                if (r.Read())
+                catch (Exception ex)
                 {
-                    s = r.GetString(0);
+                    Label3.Text = ex.Message;
                 }
-  //              Label6.Text = "Receiver's cust id " + s;
+                finally
+                {
+                    con.Close();
+                }
 
-                receivercustid = s;
+                // for checking receiver balance
+                string receiverbalance = "1";
+
+                try
+                {
+
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
 
 
+                    cmd.Parameters.AddWithValue("@receiveract", RecAccount.Text);
+                    receiveraccount = RecAccount.Text;
+                    cmd.CommandText = "Select Balance from Account_Details where Account_No=@receiveract";
+
+                    string s = "sender";
+
+                    SqlDataReader r = cmd.ExecuteReader();
+                    if (r.Read())
+                    {
+                        s = r.GetString(0);
+                    }
+                    receiverbalance = s;
+
+
+
+
+                }
+                catch (Exception ex)
+                {
+                    Label5.Text = ex.Message;
+                }
+                finally
+                {
+                    con.Close();
+                }
+
+                //adding money to reveiver
+                Label5.Text = "Receiver Balance is " + receiverbalance;
+                try
+                {
+
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@receiveract", RecAccount.Text);
+
+                    cmd.CommandText = "Update Account_Details set Balance=@amounttosend where Account_No=@receiveract";
+                    receiverbalance = Convert.ToString(Convert.ToInt32(receiverbalance) + Convert.ToInt32(AmountToSend.Text));
+
+                    cmd.Parameters.AddWithValue("@amounttosend", receiverbalance);
+                    cmd.ExecuteNonQuery();
+                    Label5.Text = "Credited to Receiver Successfully!! " + receiverbalance;
+                    Label1.Text = "";
+                    Label2.Text = "";
+
+                }
+
+                catch (Exception ex)
+                {
+                    Label3.Text = ex.Message;
+                }
+                finally
+                {
+                    con.Close();
+                }
+
+
+                //entry of credit (senderside) in all_Transactions table
+                try
+                {
+
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@creditaccount", receiveraccount);
+                    cmd.Parameters.AddWithValue("@debitaccount", senderaccount);
+                    cmd.Parameters.AddWithValue("@amount", transactionamount);
+                    cmd.Parameters.AddWithValue("@custid", custid);
+                    cmd.Parameters.AddWithValue("@date", date);
+                    cmd.Parameters.AddWithValue("@transactiontype", "DEBIT");
+                    cmd.Parameters.AddWithValue("@firmname", Firm.Text);
+                    cmd.Parameters.AddWithValue("@transactiondetails", Details.Text);
+
+
+                    cmd.CommandText = "insert into All_Transactions_New values (@custid,@creditaccount,@debitaccount,@date,@amount,@transactiontype,@firmname,@transactiondetails)";
+
+
+                    cmd.ExecuteNonQuery();
+                    Label6.Text = "Added entry to all_transactionstable";
+                }
+
+                catch (Exception ex)
+                {
+                    Label6.Text = ex.Message;
+                }
+                finally
+                {
+                    con.Close();
+                }
+
+                //getting receiver's cust id for adding entry to all_transactions table
+                try
+                {
+
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+
+
+                    cmd.Parameters.AddWithValue("@receiveract", RecAccount.Text);
+                    receiveraccount = RecAccount.Text;
+                    cmd.CommandText = "Select Cust_ID from Account_Details where Account_No=@receiveract";
+
+                    string s = "sender";
+
+                    SqlDataReader r = cmd.ExecuteReader();
+                    if (r.Read())
+                    {
+                        s = r.GetString(0);
+                    }
+                    //              Label6.Text = "Receiver's cust id " + s;
+
+                    receivercustid = s;
+
+
+                }
+                catch (Exception ex)
+                {
+                    Label6.Text = ex.Message;
+                }
+                finally
+                {
+                    con.Close();
+                }
+                //entry of receiverside in all_Transactions table
+                try
+                {
+
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@creditaccount", receiveraccount);
+                    cmd.Parameters.AddWithValue("@debitaccount", senderaccount);
+                    cmd.Parameters.AddWithValue("@amount", transactionamount);
+                    cmd.Parameters.AddWithValue("@custid", receivercustid);
+                    cmd.Parameters.AddWithValue("@date", date);
+                    cmd.Parameters.AddWithValue("@transactiontype", "CREDIT");
+                    cmd.Parameters.AddWithValue("@firmname", Firm.Text);
+                    cmd.Parameters.AddWithValue("@transactiondetails", Details.Text);
+
+
+                    cmd.CommandText = "insert into All_Transactions_New values (@custid,@creditaccount,@debitaccount,@date,@amount,@transactiontype,@firmname,@transactiondetails)";
+
+
+                    cmd.ExecuteNonQuery();
+                    Label6.Text = "Added entry to receiver side all_transactionstable";
+                }
+
+                catch (Exception ex)
+                {
+                    Label6.Text = ex.Message;
+                }
+                finally
+                {
+                    con.Close();
+                }
+                //For receiver
+                string subject = "Credit Alert!!!!";
+                string body = "Your Account Number " + receiveraccount + " is credited by " + transactionamount;
+                string salutation = "Dear " + receiverName + ",\n";
+                int l = sendEmail(subject, body, salutation, receiverEmailId);
+                Response.Write(l);
+                //For sender
+                subject = "Debit Alert!!!!";
+                body = "Your Account Number " + senderaccount + " is debited by " + transactionamount;
+                salutation = "Dear " + senderName + ",\n";
+                l = sendEmail(subject, body, salutation, senderEmailId);
+                Response.Write(l);
             }
-            catch (Exception ex)
+            else
             {
-                Label6.Text = ex.Message;
+                OTPTextBox.Text = "INVALID OTP. PLS TRY AGAIN";
             }
-            finally
-            {
-                con.Close();
-            }
-            //entry of receiverside in all_Transactions table
-            try
-            {
-
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@creditaccount", receiveraccount);
-                cmd.Parameters.AddWithValue("@debitaccount", senderaccount);
-                cmd.Parameters.AddWithValue("@amount", transactionamount);
-                cmd.Parameters.AddWithValue("@custid", receivercustid);
-                cmd.Parameters.AddWithValue("@date", date);
-                cmd.Parameters.AddWithValue("@transactiontype", "CREDIT");
-                cmd.Parameters.AddWithValue("@firmname", Firm.Text);
-                cmd.Parameters.AddWithValue("@transactiondetails", Details.Text);
-
-
-                cmd.CommandText = "insert into All_Transactions_New values (@custid,@creditaccount,@debitaccount,@date,@amount,@transactiontype,@firmname,@transactiondetails)";
-
-
-                cmd.ExecuteNonQuery();
-                Label6.Text = "Added entry to receiver side all_transactionstable";
-            }
-
-            catch (Exception ex)
-            {
-                Label6.Text = ex.Message;
-            }
-            finally
-            {
-                con.Close();
-            }
-            //For receiver
-            string subject = "Credit Alert!!!!";
-            string body = "Your Account Number "+receiveraccount+" is credited by "+transactionamount;
-            string salutation = "Dear "+receiverName+",\n";
-            int l= sendEmail(subject,body, salutation, receiverEmailId);
-            Response.Write(l);
-            //For sender
-            subject = "Debit Alert!!!!";
-            body = "Your Account Number " + senderaccount + " is debited by " + transactionamount;
-            salutation = "Dear " + senderName + ",\n";
-            l = sendEmail(subject, body, salutation, senderEmailId);
-            Response.Write(l);
         }
             //Sending Email Function
           public static int sendEmail(string subject,string body,string name,string recieverEmail)
@@ -452,14 +469,11 @@ namespace login2
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@custid", custid);
-                cmd.CommandText = "select * from All_Transactions_New where cust_id=@custid";
-                //SqlDataReader r = cmd.ExecuteReader();
-                SqlDataAdapter sa = new SqlDataAdapter(cmd);
-                //GridView1.DataSource = r;
-                //GridView1.DataBind();
-                DataTable dt = new DataTable();
-                sa.Fill(dt);
-                DataList1.DataSource = dt;
+                cmd.CommandText = "select *  from All_Transactions_New where cust_id=@custid";
+                SqlDataReader r = cmd.ExecuteReader();
+                
+               
+                DataList1.DataSource = r;
                 DataList1.DataBind();
             }
 
@@ -472,6 +486,20 @@ namespace login2
                 con.Close();
             }
 
+        }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            OTPTextBox.Visible = true;
+            Random rand = new Random();
+         //   int OTP = rand.Next(0, 100000);
+           OTP= rand.Next(0, 100000);
+            string subject = "Ultra-Secure OTP";
+            string body = "Your OTP to approve Transfer Request is " + OTP + ".";
+
+            int send = sendEmail(subject, body, senderName, senderEmailId);
+            Response.Write(send);
+            Button2.Visible = true;
         }
     }
 }

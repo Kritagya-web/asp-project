@@ -294,3 +294,4 @@ D:\ASP.NET Tutorials\e_SmartBanker_Project_ASP.NET(Updated)\asp-project\login2\o
 D:\ASP.NET Tutorials\e_SmartBanker_Project_ASP.NET(Updated)\asp-project\login2\obj\Debug\login2.pdb
 D:\ASP.NET Tutorials\e_SmartBanker_Project_ASP.NET(Updated)\asp-project\login2\bin\QRCoder.dll
 D:\ASP.NET Tutorials\e_SmartBanker_Project_ASP.NET(Updated)\asp-project\login2\obj\Debug\login2.csprojAssemblyReference.cache
+D:\ASP Practice\login2\login2\bin\QRCoder.dll
