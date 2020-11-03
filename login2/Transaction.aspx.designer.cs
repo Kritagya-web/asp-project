@@ -58,6 +58,9 @@ namespace login2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Details;
+        //protected global::System.Web.UI.WebControls.Table DetailsTable;
+        protected global::System.Web.UI.HtmlControls.HtmlTable DetailsTable;
+
 
         /// <summary>
         /// Button1 control.
@@ -85,6 +88,7 @@ namespace login2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label OTPLabel;
 
         /// <summary>
         /// Sendername control.

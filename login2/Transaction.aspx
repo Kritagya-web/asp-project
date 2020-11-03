@@ -76,11 +76,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label2" runat="server"></asp:Label>
         </p>
-        <p>
-            <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
-&nbsp;<asp:Label ID="Label9" runat="server" Text="Label"></asp:Label>
-        </p>
-        <table class="auto-style1">
+        <table class="auto-style1" runat="server" id="DetailsTable">
             <tr>
                 <td>Sender&#39;s Name:</td>
                 <td>
@@ -105,6 +101,9 @@
                     <br />
                     <br />
                     <asp:TextBox ID="OTPTextBox" runat="server" Visible="False"></asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:Label ID="OTPLabel" runat="server" Text="Label"></asp:Label>
                     <br />
                     <br />
                 </td>

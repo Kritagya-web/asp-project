@@ -37,6 +37,7 @@ namespace login2
               */
             Button2.Visible = false;
             Response.Write(date);
+            DetailsTable.Visible = false;
            
         }
      
@@ -205,7 +206,7 @@ namespace login2
             {
                 con.Close();
             }
-
+            DetailsTable.Visible = true;
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -427,10 +428,11 @@ namespace login2
                 salutation = "Dear " + senderName + ",\n";
                 l = sendEmail(subject, body, salutation, senderEmailId);
                 Response.Write(l);
+
             }
             else
             {
-                OTPTextBox.Text = "INVALID OTP. PLS TRY AGAIN";
+                OTPLabel.Text = "INVALID OTP. PLS TRY AGAIN";
             }
         }
             //Sending Email Function
