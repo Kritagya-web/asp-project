@@ -22,6 +22,8 @@ namespace login2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlTable detailstable;
+      //  protected global::System.Web.UI.HtmlControls.HtmlElement afterdetailsfetch;
 
         /// <summary>
         /// RecAccount control.
@@ -70,6 +72,7 @@ namespace login2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button Button5;
 
         /// <summary>
         /// Label1 control.
@@ -79,6 +82,9 @@ namespace login2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label Label16;
+        protected global::System.Web.UI.WebControls.Label Label8;
+        protected global::System.Web.UI.WebControls.Label Label15;
 
         /// <summary>
         /// Label2 control.

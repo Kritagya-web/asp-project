@@ -16,7 +16,7 @@ namespace login2
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if(TextBox1.Text=="ESBADM1981" && TextBox2.Text=="Test@123")
+            if (TextBox1.Text == "ESBADM1981" && TextBox2.Text == "Test@123")
             {
                 Response.Redirect("AdminPage.aspx?adm=9f90en39n92nd9h39h3x23");
             }

@@ -44,7 +44,7 @@ namespace login2
                     s = r.GetString(0);
                 }
                 receiverbalance = s;
-             
+
 
 
 
