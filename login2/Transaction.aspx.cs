@@ -31,18 +31,18 @@ namespace login2
         static int OTP;
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*  string name = Request.QueryString["custid"];
-              name = "ESB45367";
+              string name = Request.QueryString["custid"];
 
-              */
-            Button2.Visible = false;
-            Response.Write(date);
+            custid = name;
+             
            
+            //  Response.Write(date);
+    //        detailstable.Visible = false;
         }
-     
+
         protected void Button1_Click(object sender, EventArgs e)
         {
-          
+
             // to fetch detals from Account_Details table
             try
             {
@@ -51,11 +51,11 @@ namespace login2
                 SqlCommand cmd = con.CreateCommand();
                 string receipient = RecAccount.Text;
                 cmd.Parameters.AddWithValue("@receiveraccount", receipient);
-            
+
                 cmd.CommandText = "Select Name,Email from cust_profile where Account_No=@receiveraccount";
-       
-                
-     
+
+
+
                 string rec = "receiver";
                 string recId = "123";
                 SqlDataReader r = cmd.ExecuteReader();
@@ -63,149 +63,155 @@ namespace login2
                 {
                     rec = r.GetString(0);
                     recId = r.GetString(1);
-                }  
-
-                Receivername.Text = rec;
-                receiverName = rec;
-                receiverEmailId = recId;
-                Response.Write(receiverEmailId);
-            }
-            catch (Exception ex)
-            {
-                Label1.Text = ex.Message;
-            }
-            finally
-            {
-                con.Close();
-
-            } 
-            // for getting sender's name and Email
-            try
-            {
-                
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-              
-              
-                cmd.Parameters.AddWithValue("@senderid", custid);
-              
-                cmd.CommandText = "Select Name,Email from cust_profile where Cust_ID=@senderid";
-                
-                string s="sender";
-                string sId="123";
-            
-                SqlDataReader r = cmd.ExecuteReader();
-                if (r.Read())
-                {
-                    s = r.GetString(0);
-                    sId = r.GetString(1);
                 }
-                               
-
-                Sendername.Text = s;
-                senderName = s;
-                senderEmailId = sId;
-                Response.Write(senderEmailId);
-            }
-            catch (Exception ex)
-            {
-                Label1.Text = ex.Message;
-            }
-            finally
-            {
-                con.Close();
-            }
-            //   int amounttosend = int.Parse(AmountToSend.Text);
-            // for checking sender balance
-            string balance="1";
-           
-            try
-            {
-                string name = "ESB45367";
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-
-
-                cmd.Parameters.AddWithValue("@senderid", custid);
-
-                cmd.CommandText = "Select Balance from Account_Details where Cust_ID=@senderid";
-
-                string s = "sender";
-
-                SqlDataReader r = cmd.ExecuteReader();
-                if (r.Read())
+                if (rec == "receiver")
                 {
-                    s = r.GetString(0);
+                    Label15.Text = "INVAID RECEIVER ACCOUNT";
+                    Receivername.Text = Label15.Text;
+                    receiverEmailId = "INVALID";
+                    Sendername.Text = "";
+                    Receivername.Text = "";
+                    AmountToSend.Text = "";
+                    Button5.Visible = false;
                 }
-                balance = s;
-               
-                balancecheck = Convert.ToInt32(balance);
-                Label1.Text = "Your Current balance is " + balancecheck;
+                else
+                {
+                    Label15.Text = "Proceed To OTP GENERATION";
+                    Receivername.Text = rec;
+                    receiverName = rec;
+                    receiverEmailId = recId;
+                    // Response.Write(receiverEmailId);
+
+                }
 
             }
             catch (Exception ex)
             {
-                Label2.Text = ex.Message;
+                Label15.Text = ex.Message;
             }
             finally
             {
                 con.Close();
-            }
-            int amounttosend = Convert.ToInt32(Amount.Text);
 
-            if (balancecheck <= 500)
-            {
-                Label2.Text = "You must have 500 as minimum balance";
-         
             }
-            else if (balancecheck < (amounttosend + (500)))
+            if (Label15.Text == "INVAID RECEIVER ACCOUNT")
             {
-                Label2.Text = "Sorry u have insufficient funds";
-               
+                Label1.Text = "";
+                Label2.Text = "";
             }
             else
             {
-                Label2.Text = "Go";
-                Button2.Visible = true;
-                AmountToSend.Text = Amount.Text;
-            }
-
-            receiveraccount = RecAccount.Text;
-            transactionamount = Convert.ToInt32(Amount.Text);
-            
-            //for getting senderaccount
-            // for getting sender's name
-            try
-            {
-
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-
-
-                cmd.Parameters.AddWithValue("@senderid", custid);
-
-                cmd.CommandText = "Select Account_No from cust_profile where Cust_ID=@senderid";
-
-                string s = "sender";
-
-                SqlDataReader r = cmd.ExecuteReader();
-                if (r.Read())
+                // for getting sender's name and Email
+                try
                 {
-                    s = r.GetString(0);
+
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+
+
+                    cmd.Parameters.AddWithValue("@senderid", custid);
+
+                    cmd.CommandText = "Select Name,Email from cust_profile where Cust_ID=@senderid";
+
+                    string s = "sender";
+                    string sId = "123";
+
+                    SqlDataReader r = cmd.ExecuteReader();
+                    if (r.Read())
+                    {
+                        s = r.GetString(0);
+                        sId = r.GetString(1);
+                    }
+
+
+                    Sendername.Text = s;
+                    senderName = s;
+                    senderEmailId = sId;
+                    //    Response.Write(senderEmailId);
+                }
+                catch (Exception ex)
+                {
+                    Label1.Text = ex.Message;
+                }
+                finally
+                {
+                    con.Close();
+                }
+                //   int amounttosend = int.Parse(AmountToSend.Text);
+
+                int amounttosend = Convert.ToInt32(Amount.Text);
+
+                if (balancecheck <= 500)
+                {
+                    Label2.Text = "You must have 500 as minimum balance";
+
+                }
+                else if (balancecheck < (amounttosend + (500)))
+                {
+                    Label2.Text = "Sorry u have insufficient funds";
+                    Label15.Text = "";
+
+                }
+                else
+                {
+                    Label2.Text = "";
+                    Button2.Visible = true;
+                    AmountToSend.Text = Amount.Text;
                 }
 
-                senderaccount = s;
+                receiveraccount = RecAccount.Text;
+                transactionamount = Convert.ToInt32(Amount.Text);
+
+                //for getting senderaccount
+                // for getting sender's name
+                try
+                {
+
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+
+
+                    cmd.Parameters.AddWithValue("@senderid", custid);
+
+                    cmd.CommandText = "Select Account_No from cust_profile where Cust_ID=@senderid";
+
+                    string s = "sender";
+
+                    SqlDataReader r = cmd.ExecuteReader();
+                    if (r.Read())
+                    {
+                        s = r.GetString(0);
+                    }
+
+                    senderaccount = s;
+
+                }
+                catch (Exception ex)
+                {
+                    Label1.Text = ex.Message;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+            if (Label2.Text == "Sorry u have insufficient funds")
+            {
+                Sendername.Text = "";
+                Receivername.Text = "";
+                AmountToSend.Text = "";
+                Button5.Visible = false;
+            }
+            else
+            {
+                Button5.Visible = true;
 
             }
-            catch (Exception ex)
+            // detailstable.Visible = true;
+            if (Label15.Text == "INVAID RECEIVER ACCOUNT")
             {
-                Label1.Text = ex.Message;
+                Button5.Visible = false;
             }
-            finally
-            {
-                con.Close();
-            }
-
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -221,8 +227,8 @@ namespace login2
                 //subtracting from sender
                 try
                 {
-                    Label1.Text = balancecheck.ToString();
-                    string name = "ESB45367";
+                  //  Label1.Text = balancecheck.ToString();
+                  //  string name = "ESB45367";
                     con.Open();
                     SqlCommand cmd = con.CreateCommand();
                     cmd.CommandType = CommandType.Text;
@@ -338,7 +344,7 @@ namespace login2
 
 
                     cmd.ExecuteNonQuery();
-                    Label6.Text = "Added entry to all_transactionstable";
+                   // Label6.Text = "Added entry to all_transactionstable";
                 }
 
                 catch (Exception ex)
@@ -404,7 +410,7 @@ namespace login2
 
 
                     cmd.ExecuteNonQuery();
-                    Label6.Text = "Added entry to receiver side all_transactionstable";
+                   // Label6.Text = "Added entry to receiver side all_transactionstable";
                 }
 
                 catch (Exception ex)
@@ -420,17 +426,18 @@ namespace login2
                 string body = "Your Account Number " + receiveraccount + " is credited by " + transactionamount;
                 string salutation = "Dear " + receiverName + ",\n";
                 int l = sendEmail(subject, body, salutation, receiverEmailId);
-                Response.Write(l);
+             //   Response.Write(l);
                 //For sender
                 subject = "Debit Alert!!!!";
                 body = "Your Account Number " + senderaccount + " is debited by " + transactionamount;
                 salutation = "Dear " + senderName + ",\n";
                 l = sendEmail(subject, body, salutation, senderEmailId);
-                Response.Write(l);
+              //  Response.Write(l);
             }
             else
             {
-                OTPTextBox.Text = "INVALID OTP. PLS TRY AGAIN";
+               // OTPTextBox.Text = "INVALID OTP. PLS TRY AGAIN";
+                Label3.Text = "INVALID OTP. PLS TRY AGAIN";
             }
         }
             //Sending Email Function
@@ -471,8 +478,9 @@ namespace login2
                 cmd.Parameters.AddWithValue("@custid", custid);
                 cmd.CommandText = "select *  from All_Transactions_New where cust_id=@custid";
                 SqlDataReader r = cmd.ExecuteReader();
-                
-               
+/*
+                GridView1.DataSource = r;
+                GridView1.DataBind();*/
                 DataList1.DataSource = r;
                 DataList1.DataBind();
             }
@@ -485,7 +493,7 @@ namespace login2
             {
                 con.Close();
             }
-
+            Label8.Visible = true;
         }
 
         protected void Button5_Click(object sender, EventArgs e)
@@ -498,8 +506,49 @@ namespace login2
             string body = "Your OTP to approve Transfer Request is " + OTP + ".";
 
             int send = sendEmail(subject, body, senderName, senderEmailId);
-            Response.Write(send);
+          //  Response.Write(send);
             Button2.Visible = true;
+        }
+
+        protected void Button6_Click(object sender, EventArgs e)
+        {
+            // for checking sender balance
+
+
+            string balance = "1";
+
+            try
+            {
+                string name = "ESB45367";
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+
+
+                cmd.Parameters.AddWithValue("@senderid", custid);
+
+                cmd.CommandText = "Select Balance from Account_Details where Cust_ID=@senderid";
+
+                string s = "sender";
+
+                SqlDataReader r = cmd.ExecuteReader();
+                if (r.Read())
+                {
+                    s = r.GetString(0);
+                }
+                balance = s;
+
+                balancecheck = Convert.ToInt32(balance);
+                Label16.Text = "Your Current balance is " + balancecheck;
+
+            }
+            catch (Exception ex)
+            {
+                Label16.Text = ex.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
         }
     }
 }

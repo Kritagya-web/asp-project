@@ -44,47 +44,53 @@ namespace login2
                     s = r.GetString(0);
                 }
                 receiverbalance = s;
-             
+
 
 
 
             }
             catch (Exception ex)
             {
-                Label1.Text = ex.Message;
+                Test.Text = ex.Message;
             }
             finally
             {
                 con.Close();
             }
-            Label1.Text = receiverbalance;
+            Test.Text = receiverbalance;
             //adding money to reveiver
-           
-            try
+            if (receiverbalance == "sender")
             {
-
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@receiveract", Account.Text);
-
-                cmd.CommandText = "Update Account_Details set Balance=@amounttosend where Account_No=@receiveract";
-                receiverbalance = Convert.ToString(Convert.ToInt32(receiverbalance) + Convert.ToInt32(Amount.Text));
-
-                cmd.Parameters.AddWithValue("@amounttosend", receiverbalance);
-                cmd.ExecuteNonQuery();
-                Label1.Text = "Credited to Receiver Successfully!! " + receiverbalance;
-             
-
+                Test.Text = "Invalid Account NO.";
             }
+            else
+            {
+                try
+                {
 
-            catch (Exception ex)
-            {
-                Label1.Text = ex.Message;
-            }
-            finally
-            {
-                con.Close();
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@receiveract", Account.Text);
+
+                    cmd.CommandText = "Update Account_Details set Balance=@amounttosend where Account_No=@receiveract";
+                    receiverbalance = Convert.ToString(Convert.ToInt32(receiverbalance) + Convert.ToInt32(Amount.Text));
+
+                    cmd.Parameters.AddWithValue("@amounttosend", receiverbalance);
+                    cmd.ExecuteNonQuery();
+                    Test.Text = "Credited to Receiver Successfully!! ";
+
+
+                }
+
+                catch (Exception ex)
+                {
+                    Test.Text = ex.Message;
+                }
+                finally
+                {
+                    con.Close();
+                }
             }
         }
     }
