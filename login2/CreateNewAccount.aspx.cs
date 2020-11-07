@@ -120,7 +120,12 @@ namespace login2
                
                 TextAccount.Text = "36547" + (number);
                 TextCust.Text = "ESB" + n;
-              //  sendEmail(subject,body,)
+                string subject = "Welcome to ESB Family";
+                string body = "You have sucessfully created account with esb bank.\n Your Account Number is "+account
+                    +" Now click on register button on our home page to continue further.\n Your Customer ID is "+custid;
+                string name = TextFN.Text;
+                string email = TextMail.Text;
+                sendEmail(subject, body, name, email);
                 
             }
             catch(Exception ex)
