@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>out team</title>
+    <title>Our Team</title>
 	<link href="css/bars.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all" />
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
@@ -236,6 +236,9 @@ h4{
    </style>
 	
 </head>
+        <link rel="icon" 
+      type="image/png" 
+      href="../Images/favicon.png" />
 <body  onload="myfunction()">
     <form id="form1" runat="server">
        <div id="bg">

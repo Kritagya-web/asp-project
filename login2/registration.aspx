@@ -7,7 +7,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
-    <title> REGRISTRATION PAGE</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+     <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@700&display=swap" rel="stylesheet"/>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+   
+    <title> Registeration Page- ESB</title>
+    <script>
+        function getModal() {
+            p = document.getElementById('myModal');
+          
+            p.innerText = "You have been registered successfully.";
+    </script>
     <style>
          *{
             padding:0px;
@@ -269,6 +282,9 @@
         /* loader ends */
     </style>
 </head>
+        <link rel="icon" 
+      type="image/png" 
+      href="../Images/favicon.png" />
 <body onload="myfunction()">
     <form id="form1" runat="server">
          <div id="loading">
@@ -336,7 +352,8 @@
                 </tr>
             </table>
 
-            <asp:Button ID="Button1" runat="server" Text="Register Now" Width="150px" height="30px" OnClick="Button1_Click"/>
+            <asp:Button ID="Button1" runat="server" Text="Register Now" Width="150px" height="30px" OnClick="Button1_Click" onClientClick="getModal()"  data-toggle="modal" href="#ignismyModal"  />
+            
             <br />
             <asp:Label ID="Label5" runat="server" Text=""></asp:Label>
         </div>
@@ -344,6 +361,37 @@
                 
                 <asp:Button ID="Button2" class="myButton" runat="server" Text="Back to Home Page" CausesValidation="False" PostBackUrl="homepage.aspx"/>
             </div>
+          <!-- ********************modal starts**************** -->
+        <div class="container">
+    <div class="row">
+       
+        <div class="modal fade" id="ignismyModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label=""><span>×</span></button>
+                     </div>
+					
+                    <div class="modal-body">
+                       
+						<div class="thank-you-pop" >
+							
+							<h1>Welcome To ESB Family!</h1>
+							
+                            
+							<h3 style="text-align:center" class="cupon-pop" id="myModal"></h3>
+                            <img src="../Images/success.png" />
+							<p style="text-align:center; font-size:20px"> Thank you for registering</p>
+ 						</div>
+                         
+                    </div>
+					
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+         <!-- ********************modal ends**************** -->
     </form>
     <script>
         var preloader = document.getElementById('loading');

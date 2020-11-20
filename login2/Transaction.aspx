@@ -4,15 +4,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Transfers</title>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     
     <style type="text/css">
                  body{
-            width:100vw;
-            height:100vh;
+            
             font-family: 'Baloo 2', cursive;
             background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
           
@@ -26,7 +25,7 @@
                     width: 545px;
     height: 681px;
     position: relative;
-    top: 8px;
+    top: -52px;
     /* left: -74px; */
     color: white;
     /* transform: translate(-50%,-50%); */
@@ -128,35 +127,166 @@ input[type=text]{
               text-align:center;
           }
 #Button3{
-        left: -544px;
+     left: -628px;
     display: inline-block;
     position: relative;
-    top: -63px;
+    top: 19px;
 }
 #Button4{
     width:237px;
 }
 #Button7{
-    display: inline-block;
+        display: inline-block;
     position: relative;
-    left: 432px;
-    top: -63px;
+    left: 570px;
+    top: -19px;
 }
+.check{
+   position:relative;
+}
+#loading{            /*loader starts*/
+            display:flex;
+            width:100%;
+            height:100vh;
+            z-index:9999999;
+            position:absolute;
+            justify-content:center;
+            align-items:center;
+            background: #fff no-repeat;
+         }
+         #ring{
+            width:300px;
+            height:300px;
+            border-radius:50%;
+            box-shadow:0 4px 0 #262626;
+            background:transparent;
+            animation: animate 1s linear infinite;
+         }
+
+        @keyframes animate{
+            0%{
+                transform:rotate(0 deg);
+            }
+            100%{
+                transform:rotate(360deg);
+            }
+        }
+        #text1{
+            margin-left:-50px;
+            color:black;
+            font-family:Verdana;
+            font-size:20px;
+            font-weight:800;
+            margin-left:-180px;
+        }      
+        .loader {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            border: 3px solid;
+            border-color: rgba(54,219,219,1) rgba(54,219,219,1) transparent;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+            }
+            .loader::after {
+            content: '';  
+            box-sizing: border-box;
+            position: absolute;
+            left: 0;
+            right: 0;
+            padding:5px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            border: 3px solid;
+            border-color: transparent rgba(242,209,124,1) rgba(242,209,124,1);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            animation: rotationBack 0.5s linear infinite;
+            transform-origin: center center;
+            }
+
+            @keyframes rotation {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+                } 
+                    
+                @keyframes rotationBack {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(-360deg);
+                }
+            }
+                /*For Loading*/
+            .loader1 {
+            font-size: 28px;
+            padding-left:5px;
+            display: inline-block;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            color: #263238;
+            box-sizing: border-box;
+            text-shadow: 0 0 2px #FFF, 0 0 1px #FFF, 0 0 1px #FFF;
+            letter-spacing: 2px;
+            position: relative;
+            }
+            .loader1::after {
+            content: 'Loading';
+            position: absolute;
+            left: 5px;
+            top: 0;
+            color: rgba(54,219,219,1);
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+            animation: animloader 2s linear infinite;
+            }
+
+            @keyframes animloader {
+                0% {
+                    width: 0%;
+                }
+                100% {
+                    width: 100%;
+                }
+            }
+        /* loader ends */
 
 
     </style>
    
 </head>
-<body>
+        <link rel="icon" 
+      type="image/png" 
+      href="../Images/favicon.png" />
+<body onload="myfunction()">
     <form id="form1" runat="server">
+    
+         <div id="loading">
+            <!--<div id="ring"></div>
+             <div id="text1">LOADING</div>-->
+         <span class="loader"></span>
+         <span></span>
+         <span class="loader1">Loading</span>
+        </div>
         <div class="container"> 
+                <asp:Button ID="Button3" class="myButton" runat="server" Text="Back to Home Page" CausesValidation="False" PostBackUrl="homepage.aspx"/>
+                <asp:Button ID="Button7" class="myButton" runat="server" Text="Log Out" CausesValidation="False" PostBackUrl="loginpage.aspx"/>
             
             <div class="container reg-box">
             <div class="homebutton">
                 
-                <asp:Button ID="Button3" class="myButton" runat="server" Text="Back to Home Page" CausesValidation="False" PostBackUrl="homepage.aspx"/>
               
-                <asp:Button ID="Button7" class="myButton" runat="server" Text="Log Out" CausesValidation="False" PostBackUrl="loginpage.aspx"/>
             </div>
                 
           <h1>Transfer Money </h1>
@@ -251,9 +381,11 @@ input[type=text]{
             </tr>
         </table>
            </div>
-
-                    <asp:Button ID="Button2" class="myButton" runat="server" OnClick="Button2_Click" Text="Confirm" Visible="False" ValidationGroup="otp" />
-                </asp:Panel>
+                    <div class="check">
+                   <asp:Button ID="Button2" class="myButton" runat="server" OnClick="Button2_Click" Text="Confirm" Visible="False" ValidationGroup="otp" />
+            </div>
+                        </asp:Panel>
+                   <asp:Button ID="Button4" class="myButton" runat="server" OnClick="Button4_Click" Text="Generate Account Statement" />
     
       
         
@@ -261,7 +393,6 @@ input[type=text]{
       
                
       
-            <asp:Button ID="Button4" class="myButton" runat="server" OnClick="Button4_Click" Text="Generate Account Statement" />
                
         
 <asp:Label ID="Label4" runat="server"></asp:Label>
@@ -324,6 +455,11 @@ input[type=text]{
         <asp:Label ID="Label7" runat="server"></asp:Label>
             </div>
     </form>
-     
+     <script>
+        var preloader = document.getElementById('loading');
+        function myfunction() {
+            preloader.style.display = 'none';
+        }
+     </script>
 </body>
 </html>

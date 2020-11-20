@@ -287,6 +287,9 @@ z-index:-1;
         /* loader ends */
     </style>
 </head>
+        <link rel="icon" 
+      type="image/png" 
+      href="../Images/favicon.png" />
 <body onload="myfunction()">
     <form id="form2" runat="server">
          <div id="loading">

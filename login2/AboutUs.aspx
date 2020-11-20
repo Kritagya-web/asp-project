@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>About US</title>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
@@ -15,6 +15,16 @@
         padding:0px;
         box-sizing:border-box;
     }
+   #bg{
+	position:fixed;
+background-image: url("logonewnew.png");
+background-size: 150px;
+margin-right:8px;
+width:100vw;
+height:100vh;
+opacity: 0.09;
+z-index:-1;
+}
     .logo{
         width: 523px;
     height: auto;
@@ -36,10 +46,139 @@
     h1{
         font-weight:650;
     }
+    #loading{            /*loader starts*/
+            display:flex;
+            width:100%;
+            height:100vh;
+            z-index:9999999;
+            position:absolute;
+            justify-content:center;
+            align-items:center;
+            background: #fff no-repeat;
+         }
+         #ring{
+            width:300px;
+            height:300px;
+            border-radius:50%;
+            box-shadow:0 4px 0 #262626;
+            background:transparent;
+            animation: animate 1s linear infinite;
+         }
+
+        @keyframes animate{
+            0%{
+                transform:rotate(0 deg);
+            }
+            100%{
+                transform:rotate(360deg);
+            }
+        }
+        #text1{
+            margin-left:-50px;
+            color:black;
+            font-family:Verdana;
+            font-size:20px;
+            font-weight:800;
+            margin-left:-180px;
+        }      
+        .loader {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            border: 3px solid;
+            border-color: rgba(54,219,219,1) rgba(54,219,219,1) transparent;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+            }
+            .loader::after {
+            content: '';  
+            box-sizing: border-box;
+            position: absolute;
+            left: 0;
+            right: 0;
+            padding:5px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            border: 3px solid;
+            border-color: transparent rgba(242,209,124,1) rgba(242,209,124,1);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            animation: rotationBack 0.5s linear infinite;
+            transform-origin: center center;
+            }
+
+            @keyframes rotation {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+                } 
+                    
+                @keyframes rotationBack {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(-360deg);
+                }
+            }
+                /*For Loading*/
+            .loader1 {
+            font-size: 28px;
+            padding-left:5px;
+            display: inline-block;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            color: #263238;
+            box-sizing: border-box;
+            text-shadow: 0 0 2px #FFF, 0 0 1px #FFF, 0 0 1px #FFF;
+            letter-spacing: 2px;
+            position: relative;
+            }
+            .loader1::after {
+            content: 'Loading';
+            position: absolute;
+            left: 5px;
+            top: 0;
+            color: rgba(54,219,219,1);
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+            animation: animloader 2s linear infinite;
+            }
+
+            @keyframes animloader {
+                0% {
+                    width: 0%;
+                }
+                100% {
+                    width: 100%;
+                }
+            }
+        /* loader ends */
+
 </style>
 </head>
-<body>
+        <link rel="icon" 
+      type="image/png" 
+      href="../Images/favicon.png" />
+<body onload="myfunction()">
     <form id="form1" runat="server">
+         <div id="loading">
+            <!--<div id="ring"></div>
+             <div id="text1">LOADING</div>-->
+         <span class="loader"></span>
+         <span></span>
+         <span class="loader1">Loading</span>
+        </div>
+ <div id="bg"></div>
         <div class="container">
             <h1>Overview</h1>
             <h4>About ESmartBanker :</h4>
@@ -103,5 +242,11 @@ Our values and vision, and our beliefs that drive ESmartBanker are reflected in 
             <img src="logonewnew.png" class="img-fluid logo" />
         </div>
     </form>
+    <script>
+        var preloader = document.getElementById('loading');
+        function myfunction() {
+            preloader.style.display = 'none';
+        }
+    </script>
 </body>
 </html>

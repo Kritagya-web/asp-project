@@ -83,12 +83,14 @@
     <Content Include="BillManager.aspx" />
     <Content Include="CreateNewAccount.aspx" />
     <Content Include="cust_after_login.aspx" />
+    <Content Include="electricitybillpay.aspx" />
     <Content Include="homepage.aspx" />
     <Content Include="loginpage.aspx" />
     <Content Include="OurTeam.aspx" />
     <Content Include="registration.aspx" />
     <Content Include="pngtree-business-male-icon-vector-png-image_916468.jpg" />
     <Content Include="Services.aspx" />
+    <Content Include="telephonebillpay.aspx" />
     <Content Include="Transaction.aspx" />
     <Content Include="UpdateProfile.aspx" />
     <Content Include="Web.config" />
@@ -136,6 +138,13 @@
     <Compile Include="cust_after_login.aspx.designer.cs">
       <DependentUpon>cust_after_login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="electricitybillpay.aspx.cs">
+      <DependentUpon>electricitybillpay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="electricitybillpay.aspx.designer.cs">
+      <DependentUpon>electricitybillpay.aspx</DependentUpon>
+    </Compile>
     <Compile Include="homepage.aspx.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -171,6 +180,13 @@
     </Compile>
     <Compile Include="Services.aspx.designer.cs">
       <DependentUpon>Services.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="telephonebillpay.aspx.cs">
+      <DependentUpon>telephonebillpay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="telephonebillpay.aspx.designer.cs">
+      <DependentUpon>telephonebillpay.aspx</DependentUpon>
     </Compile>
     <Compile Include="Transaction.aspx.cs">
       <DependentUpon>Transaction.aspx</DependentUpon>

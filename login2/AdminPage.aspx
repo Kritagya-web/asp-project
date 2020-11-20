@@ -234,7 +234,7 @@
                     transform: rotate(-360deg);
                 }
             }
-                /For Loading/
+                /*For Loading*/
             .loader1 {
             font-size: 28px;
             padding-left:5px;
@@ -271,6 +271,9 @@
         /* loader ends */
     </style>
 </head>
+        <link rel="icon" 
+      type="image/png" 
+      href="../Images/favicon.png" />
 <body onload="myfunction()">
     <form id="form2" runat="server">
          <div id="loading">

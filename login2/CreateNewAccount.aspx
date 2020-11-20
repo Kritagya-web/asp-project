@@ -4,7 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>New Account- ESB
+    </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
      <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@700&display=swap" rel="stylesheet"/>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -350,6 +351,9 @@ a {
         /* loader ends */
     </style>
 </head>
+        <link rel="icon" 
+      type="image/png" 
+      href="../Images/favicon.png" />
 <body onload="myfunction()">
     <form id="form1" runat="server">
           <div id="loading">
@@ -386,8 +390,10 @@ a {
             <table class="table table-striped">
                 <tr>
                     <td class="text-center">Full Name:</td>
-                    <td class="text-center" colspan="2">
+                    <td class="text-center">
                         <asp:TextBox ID="TextFN" runat="server"></asp:TextBox>
+                    </td>
+                    <td class="text-center">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextFN" Display="Dynamic" ErrorMessage="Please Enter First Name" ForeColor="Black" SetFocusOnError="True" ToolTip="This is required"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
@@ -395,56 +401,71 @@ a {
                 
                 <tr>
                     <td class="text-center">DOB:</td>
-                    <td class="text-center" colspan="2">
-                        <asp:TextBox ID="TextDOB" runat="server" Type="date" OnTextChanged="TextLN_TextChanged"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="TextDOB" Display="Dynamic" ErrorMessage="Please Enter DOB" ForeColor="Black" SetFocusOnError="True" ToolTip="This is required"></asp:RequiredFieldValidator>
+                    <td class="text-center">
+                        <asp:TextBox ID="TextDOB" type="date" runat="server" OnTextChanged="TextLN_TextChanged" ></asp:TextBox>
+                    </td>
+                    <td class="text-center">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="TextDOB" Display="Dynamic" ErrorMessage="Please Enter DOB" ForeColor="Black" SetFocusOnError="True" ToolTip="This is required"></asp:RequiredFieldValidator>
+                        <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextDOB" Display="Dynamic" ErrorMessage="Age must be between 18 &amp; 100 years." ForeColor="Red" MinimumValue="18" SetFocusOnError="True" Type="Date" MaximumValue="120"></asp:RangeValidator>
                     </td>
                 </tr>
                 <tr>
                     <td class="text-center">Type of Account:</td>
-                    <td class="text-center" colspan="2">
+                    <td class="text-center">
                         &nbsp;&nbsp;
                         <asp:RadioButtonList ID="RadioButtonList1" runat="server" Width="155px">
                             <asp:ListItem>SB</asp:ListItem>
                             <asp:ListItem>Current</asp:ListItem>
                         </asp:RadioButtonList>
+                    </td>
+                    <td class="text-center">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="RadioButtonList1" Display="Dynamic" ErrorMessage="Please Select any one type" ForeColor="Black" SetFocusOnError="True" ToolTip="This is required"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td class="text-center">Mobile Number:</td>
-                    <td class="text-center" colspan="2">
+                    <td class="text-center">
                         <asp:TextBox ID="TextMob" runat="server" OnTextChanged="TextMob_TextChanged"></asp:TextBox>
+                    </td>
+                    <td class="text-center">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextMob" Display="Dynamic" ErrorMessage="Please Enter Mobile No." ForeColor="Black" SetFocusOnError="True" ToolTip="This is required"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="TextMob" Display="Dynamic" ErrorMessage="Please enter valid Mobile No." Font-Bold="True" Font-Italic="False" Font-Size="Medium" ForeColor="#FF6600" SetFocusOnError="True" ValidationExpression="\d{10}"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
                     <td class="text-center">Email Id:</td>
-                    <td class="text-center" colspan="2">
+                    <td class="text-center">
                         <asp:TextBox ID="TextMail" runat="server"></asp:TextBox>
+                    </td>
+                    <td class="text-center">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextMail" Display="Dynamic" ErrorMessage="Please Enter Email ID" ForeColor="Black" SetFocusOnError="True" ToolTip="This is required"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="TextMail" Display="Dynamic" ErrorMessage="Please enter valid Email" Font-Bold="True" Font-Italic="False" Font-Size="Medium" ForeColor="#FF6600" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
                     <td class="text-center">Address</td>
-                    <td class="text-center" colspan="2">
+                    <td class="text-center">
                         <asp:TextBox ID="Address" runat="server"></asp:TextBox>
                     </td>
+                    <td class="text-center">
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td class="text-center">Aadhar No:</td>
-                    <td class="text-center" colspan="2">
+                    <td class="text-center">
                         <asp:TextBox ID="TextAdc" runat="server"></asp:TextBox>
+                    </td>
+                    <td class="text-center">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="TextAdc" Display="Dynamic" ErrorMessage="Please Enter Aadhar No" ForeColor="Black" SetFocusOnError="True" ToolTip="This is required"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="TextAdc" Display="Dynamic" ErrorMessage="Please enter valid Aadhar No." Font-Bold="True" Font-Italic="False" Font-Size="Medium" ForeColor="#FF6600" SetFocusOnError="True" ValidationExpression="^\d{4}\d{4}\d{4}$"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
                     <td class="text-center">PAN No:</td>
-                    <td class="text-center" colspan="2">
+                    <td class="text-center">
                         <asp:TextBox ID="TextPan" runat="server"></asp:TextBox>
+                    </td>
+                    <td class="text-center">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="TextPan" Display="Dynamic" ErrorMessage="Please Enter PAN" ForeColor="Black" SetFocusOnError="True" ToolTip="This is required"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="TextPan" Display="Dynamic" ErrorMessage="Please enter valid PAN" Font-Bold="True" Font-Italic="False" Font-Size="Medium" ForeColor="#FF6600" SetFocusOnError="True" ValidationExpression="(^([a-zA-Z]{5})([0-9]{4})([a-zA-Z]{1})$)"></asp:RegularExpressionValidator>
                     </td>
@@ -452,6 +473,7 @@ a {
                 <tr>
                     <td colspan="3" class="text-center">&nbsp;</td>
                 </tr>
+                <asp:Panel ID="Panel1" runat="server" Visible="False">
                 <tr>
                     <td colspan="2" class="text-center">Your Customer ID is:</td>
                     <td class="text-center">
@@ -464,6 +486,7 @@ a {
                         <asp:TextBox ID="TextAccount" runat="server"  ReadOnly="true" CssClass="" OnTextChanged="TextBox10_TextChanged" ></asp:TextBox>
                     </td>
                 </tr>
+                    </asp:Panel>
                 </table>
         </div>
         <p>
@@ -474,7 +497,8 @@ a {
             <p class="container text-center">
             <asp:Button ID="Button1" class="myButton" runat="server" CausesValidation="False" Text="Back to Home" OnClick="Button1_Click" />
                 <asp:Button ID="Button2" class="myButton" runat="server" Text="Check" OnClick="Button2_Click"  />
-                <a class="myButton" data-toggle="modal" href="#ignismyModal" onclick="getModal()">Submit Data</a>
+                <asp:Button ID="Button3" class="myButton" runat="server" Text="Submit Data" data-toggle="modal" href="#ignismyModal" onClientClick="getModal()" OnClick="Button3_Click" CausesValidation="False"  />
+                
              </p>
             </section>
         <br />
@@ -488,6 +512,7 @@ a {
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
+
                         <button type="button" class="close" data-dismiss="modal" aria-label=""><span>×</span></button>
                      </div>
 					
