@@ -81,8 +81,11 @@
       <DependentUpon>registration_page.mdf</DependentUpon>
     </Content>
     <Content Include="BillManager.aspx" />
+    <Content Include="ChequeRequest.aspx" />
     <Content Include="CreateNewAccount.aspx" />
+    <Content Include="Credit_Card_Request.aspx" />
     <Content Include="cust_after_login.aspx" />
+    <Content Include="Debit_Card_Request.aspx" />
     <Content Include="electricitybillpay.aspx" />
     <Content Include="homepage.aspx" />
     <Content Include="loginpage.aspx" />
@@ -124,6 +127,13 @@
     <Compile Include="BillManager.aspx.designer.cs">
       <DependentUpon>BillManager.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ChequeRequest.aspx.cs">
+      <DependentUpon>ChequeRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChequeRequest.aspx.designer.cs">
+      <DependentUpon>ChequeRequest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CreateNewAccount.aspx.cs">
       <DependentUpon>CreateNewAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -131,12 +141,26 @@
     <Compile Include="CreateNewAccount.aspx.designer.cs">
       <DependentUpon>CreateNewAccount.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Credit_Card_Request.aspx.cs">
+      <DependentUpon>Credit_Card_Request.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Credit_Card_Request.aspx.designer.cs">
+      <DependentUpon>Credit_Card_Request.aspx</DependentUpon>
+    </Compile>
     <Compile Include="cust_after_login.aspx.cs">
       <DependentUpon>cust_after_login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="cust_after_login.aspx.designer.cs">
       <DependentUpon>cust_after_login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Debit_Card_Request.aspx.cs">
+      <DependentUpon>Debit_Card_Request.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Debit_Card_Request.aspx.designer.cs">
+      <DependentUpon>Debit_Card_Request.aspx</DependentUpon>
     </Compile>
     <Compile Include="electricitybillpay.aspx.cs">
       <DependentUpon>electricitybillpay.aspx</DependentUpon>

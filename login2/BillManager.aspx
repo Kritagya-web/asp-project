@@ -4,6 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
     <title>Bill Manager - ESB</title>
     <style type="text/css">
         .auto-style1 {
@@ -146,7 +147,7 @@
         </div>
  
         <div class="auto-style1">
-            Bill Management Dashboard<table class="auto-style2">
+            Bill Management Dashboard<table class="auto-style2 table">
                 <tr>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
