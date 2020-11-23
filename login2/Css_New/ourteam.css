@@ -1,0 +1,218 @@
+﻿* {
+    padding: 0px;
+    margin: 0px;
+    color: black;
+    font-size: 15px;
+    font-family: 'Baloo Bhai 2', cursive;
+}
+
+#loading { /*loader starts*/
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999999;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    background: #fff no-repeat;
+}
+
+#ring {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: 0 4px 0 #262626;
+    background: transparent;
+    animation: animate 1s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0 deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#text1 {
+    margin-left: -50px;
+    color: black;
+    font-family: Verdana;
+    font-size: 20px;
+    font-weight: 800;
+    margin-left: -180px;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    border: 3px solid;
+    border-color: rgba(54,219,219,1) rgba(54,219,219,1) transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+    .loader::after {
+        content: '';
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        right: 0;
+        padding: 5px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        border: 3px solid;
+        border-color: transparent rgba(242,209,124,1) rgba(242,209,124,1);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        animation: rotationBack 0.5s linear infinite;
+        transform-origin: center center;
+    }
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotationBack {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+/*For Loading*/
+.loader1 {
+    font-size: 28px;
+    padding-left: 5px;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #263238;
+    box-sizing: border-box;
+    text-shadow: 0 0 2px #FFF, 0 0 1px #FFF, 0 0 1px #FFF;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+    .loader1::after {
+        content: 'Loading';
+        position: absolute;
+        left: 5px;
+        top: 0;
+        color: rgba(54,219,219,1);
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+        animation: animloader 2s linear infinite;
+    }
+
+@keyframes animloader {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+/* loader ends */
+
+.project-work {
+    margin: 100px 0;
+}
+
+    .project-work h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+.headings {
+    margin-bottom: 50px;
+}
+
+    .headings h1 {
+        font-size: 4rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+p {
+    font-size: 2rem;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #606060
+}
+
+#bg {
+    position: fixed;
+    background-image: url("../Images/logonewnew.png");
+    background-size: 150px;
+    margin-right: 8px;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+.title-w3 {
+    font-size: 5rem;
+}
+
+h4 {
+    color: black !important;
+}
+
+.mainButtons {
+    border: 1px solid black;
+    border-radius: 100px;
+    margin: 40px;
+    padding: 12px 35px;
+    outline: none;
+    color: black;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+}
+
+    .mainButtons:hover {
+        background-color: black;
+        color: red;
+    }
+
+.container {
+    position: relative;
+    top: 0px;
+}
+
+#Button2 {
+    position: relative;
+    top: 0;
+    margin: 0;
+}
+
+.progress {
+    height: 22px;
+    margin: 0px 60px;
+}
+
+.growthSection {
+    padding-top: 25px;
+    padding-bottom: 50px;
+}

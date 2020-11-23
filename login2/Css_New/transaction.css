@@ -1,0 +1,277 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Baloo 2', cursive;
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background: rgb(242,209,124);
+    background: radial-gradient(circle, rgba(242,209,124,1) 0%, #673AB7 100%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    font-family: 'Baloo 2', cursive;
+}
+
+.reg-box {
+    width: 545px;
+    height: 681px;
+    position: relative;
+    top: -52px;
+    /* left: -74px; */
+    color: white;
+    /* transform: translate(-50%,-50%); */
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgb(128,87,198)100%);
+    border-radius: 40px 5px 40px 5px;
+    box-shadow: 8px 8px 8px rgb(96,61,157);
+    cursor: pointer;
+}
+
+    .reg-box h1 {
+        color: white;
+        margin-top: 20px;
+        font-family: 'Sansita Swashed', cursive;
+    }
+
+#DataList1 {
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.detailsdiv {
+    display: none;
+}
+
+.auto-style1 {
+    text-align: center;
+}
+
+.maintable {
+}
+
+    .maintable tr {
+    }
+
+.datalistmy {
+    /* border: 2px solid black;*/
+    height: 483px;
+    overflow: auto;
+    position: relative;
+    top: -538px;
+    left: -477px;
+}
+
+.accountlabel {
+    position: relative;
+    font-size: 26px;
+    font-weight: 800;
+    left: -475px;
+    top: -560px;
+    color: white;
+}
+
+#DataList1 {
+    background: transparent !important;
+    color: white !important;
+}
+/*.afterdetailsfetch{
+          display:none;
+       }
+    #detailstable{
+        display:none;
+    }*/
+.myButton {
+    box-shadow: 3px 4px 0px 0px #899599;
+    background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+    background-color: #ededed;
+    border-radius: 15px;
+    border: 1px solid #d6bcd6;
+    display: inline-block;
+    cursor: pointer;
+    color: black !important;
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 13px;
+    padding: 7px 25px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #e1e2ed;
+    margin: 5px 10px;
+    width: 172px;
+}
+
+    .myButton:hover {
+        background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+        background-color: #bab1ba;
+    }
+
+    .myButton:active {
+        position: relative;
+        top: 1px;
+    }
+
+input[type=text] {
+    background: transparent;
+    width: 200px;
+    border-radius: 3px;
+    border-bottom: 3px solid rgb(255,165,0);
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    color: white;
+    text-align: center;
+}
+
+#Button3 {
+    left: -628px;
+    display: inline-block;
+    position: relative;
+    top: 19px;
+}
+
+#Button4 {
+    width: 237px;
+}
+
+#Button7 {
+    display: inline-block;
+    position: relative;
+    left: 570px;
+    top: -19px;
+}
+
+.check {
+    position: relative;
+}
+
+#loading { /*loader starts*/
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999999;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    background: #fff no-repeat;
+}
+
+#ring {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: 0 4px 0 #262626;
+    background: transparent;
+    animation: animate 1s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0 deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#text1 {
+    margin-left: -50px;
+    color: black;
+    font-family: Verdana;
+    font-size: 20px;
+    font-weight: 800;
+    margin-left: -180px;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    border: 3px solid;
+    border-color: rgba(54,219,219,1) rgba(54,219,219,1) transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+    .loader::after {
+        content: '';
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        right: 0;
+        padding: 5px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        border: 3px solid;
+        border-color: transparent rgba(242,209,124,1) rgba(242,209,124,1);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        animation: rotationBack 0.5s linear infinite;
+        transform-origin: center center;
+    }
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotationBack {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+/*For Loading*/
+.loader1 {
+    font-size: 28px;
+    padding-left: 5px;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #263238;
+    box-sizing: border-box;
+    text-shadow: 0 0 2px #FFF, 0 0 1px #FFF, 0 0 1px #FFF;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+    .loader1::after {
+        content: 'Loading';
+        position: absolute;
+        left: 5px;
+        top: 0;
+        color: rgba(54,219,219,1);
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+        animation: animloader 2s linear infinite;
+    }
+
+@keyframes animloader {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+/* loader ends */
