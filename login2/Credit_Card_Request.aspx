@@ -4,15 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Debit Card Request</title>
-    <style type="text/css">
-        .auto-style1 {
-            text-align: center;
-        }
-        .auto-style2 {
-            width: 100%;
-        }
-    </style>
+    <title>Credit Card Request</title>
+      <link rel="stylesheet" href="Css_New/creditcardrequest.css" />
 
 </head>
      <link rel="icon" 
