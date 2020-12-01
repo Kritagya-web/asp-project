@@ -4,43 +4,57 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>About US</title>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
-<style>
-    *{
-        margin:0px;
-        padding:0px;
-        box-sizing:border-box;
-    }
-    .logo{
-        width: 523px;
-    height: auto;
-    display: block;
-    margin: 0px auto;
-    }
-    .simple{
-            width: 814px;
-    height: 216px;
-    display: block;
-    margin: 0px auto;
-    }
-    p{
-        margin-left:20px;
-    }
-    ul{
-        margin-left:40px;
-    }
-    h1{
-        font-weight:650;
-    }
-</style>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+ 
+<link rel="stylesheet" href="Css_New/aboutus.css" />
 </head>
-<body>
+        <link rel="icon" 
+      type="image/png" 
+      href="../Images/favicon.png" />
+<body onload="myfunction()">
     <form id="form1" runat="server">
-        <div class="container">
+         <div id="loading">
+            <!--<div id="ring"></div>
+             <div id="text1">LOADING</div>-->
+         <span class="loader"></span>
+         <span></span>
+         <span class="loader1">Loading</span>
+        </div>
+ <div id="bg"></div>
+        <div class="top">
+       <nav class="navbar navbar-expand-lg stick">
+  <a class="navbar-brand" href="#"><img src="logonewnew.png" /></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <asp:HyperLink runat="server" NavigateUrl="homepage.aspx" class="nav-link "><i class="fa fa-home"></i>Home</asp:HyperLink>
+      <asp:HyperLink runat="server" NavigateUrl="AboutUs.aspx" class="nav-link "><i class="fa fa-users"></i>About Us</asp:HyperLink>
+   
+    <asp:HyperLink runat="server" NavigateUrl="AdminLogin.aspx" class="nav-link "><i class="fa fa-users"></i>Admin Login</asp:HyperLink>
+    <asp:HyperLink runat="server" NavigateUrl="policies.aspx" class="nav-link "><i class="fa fa-book"></i>Our Policies</asp:HyperLink>
+    
+      <asp:HyperLink runat="server" NavigateUrl="OurTeam.aspx" class="nav-link "><i class="fa fa-address-book"></i>Reach Us</asp:HyperLink>
+      <asp:HyperLink runat="server" NavigateUrl="ContactUs.aspx" class="nav-link "><i class="fa fa-address-book"></i>Contact US</asp:HyperLink>
+
+     
+     
+    </div>
+  </div>
+</nav>
+            </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="container ">
             <h1>Overview</h1>
             <h4>About ESmartBanker :</h4>
             <p>ESmartBanker is a Scheduled Commercial Bank. Established in Bengaluru in 2008, it has been recognized globally as one of the most innovative financial institutions working on financial inclusion.</p>
@@ -103,5 +117,11 @@ Our values and vision, and our beliefs that drive ESmartBanker are reflected in 
             <img src="logonewnew.png" class="img-fluid logo" />
         </div>
     </form>
+    <script>
+        var preloader = document.getElementById('loading');
+        function myfunction() {
+            preloader.style.display = 'none';
+        }
+    </script>
 </body>
 </html>

@@ -90,7 +90,11 @@ namespace login2
           
                        Response.Redirect("Transaction.aspx?custid=" + Label2.Text + "");
         }
+        protected void Button5_Click(object sender, EventArgs e)
+        {
 
-       
+            Response.Redirect("Services.aspx?custid=" + Label2.Text + "");
+        }
+
     }
 }

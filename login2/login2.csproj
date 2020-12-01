@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
+    <Content Include="admindashboard.aspx" />
     <Content Include="AdminLogin.aspx" />
     <Content Include="AdminPage.aspx" />
     <Content Include="App_Data\registration_page.mdf" />
@@ -81,14 +82,88 @@
       <DependentUpon>registration_page.mdf</DependentUpon>
     </Content>
     <Content Include="BillManager.aspx" />
+    <Content Include="ChequeRequest.aspx" />
+    <Content Include="ContactUs.aspx" />
     <Content Include="CreateNewAccount.aspx" />
+    <Content Include="Credit_Card_Request.aspx" />
+    <Content Include="Css_New\aboutus.css" />
+    <Content Include="Css_New\adminlogin.css" />
+    <Content Include="Css_New\adminpage.css" />
+    <Content Include="Css_New\billmanager.css" />
+    <Content Include="Css_New\chequerequest.css" />
+    <Content Include="Css_New\contactus.css" />
+    <Content Include="Css_New\createnewaccount.css" />
+    <Content Include="Css_New\creditcardrequest.css" />
+    <Content Include="Css_New\custafterlogin.css" />
+    <Content Include="Css_New\debitcardrequest.css" />
+    <Content Include="Css_New\electricitybillpay.css" />
+    <Content Include="Css_New\homepage.css" />
+    <Content Include="Css_New\loginpage.css" />
+    <Content Include="Css_New\ourteam.css" />
+    <Content Include="Css_New\registration.css" />
+    <Content Include="Css_New\sevices.css" />
+    <Content Include="Css_New\telephonebillpay.css" />
+    <Content Include="Css_New\transaction.css" />
+    <Content Include="Css_New\update.css" />
     <Content Include="cust_after_login.aspx" />
+    <Content Include="Debit_Card_Request.aspx" />
+    <Content Include="electricitybillpay.aspx" />
     <Content Include="homepage.aspx" />
+    <Content Include="Images\2.png" />
+    <Content Include="Images\atm.jpg" />
+    <Content Include="Images\back.jpg" />
+    <Content Include="Images\Background.jpg" />
+    <Content Include="Images\backImg.jpg" />
+    <Content Include="Images\banner1.jpg" />
+    <Content Include="Images\banner10.jpg" />
+    <Content Include="Images\banner2.jpg" />
+    <Content Include="Images\banner3.jpg" />
+    <Content Include="Images\banner4.jpg" />
+    <Content Include="Images\banner5.jpg" />
+    <Content Include="Images\banner6.jpg" />
+    <Content Include="Images\banner7.jpg" />
+    <Content Include="Images\banner8.jpg" />
+    <Content Include="Images\banner9.jpg" />
+    <Content Include="Images\bg.jpg" />
+    <Content Include="Images\bglogo.png" />
+    <Content Include="Images\cheque.jpg" />
+    <Content Include="Images\cheque.png" />
+    <Content Include="Images\creditcard.png" />
+    <Content Include="Images\debitcard.jpg" />
+    <Content Include="Images\double.png" />
+    <Content Include="Images\electricity.jpg" />
+    <Content Include="Images\favicon.jpg" />
+    <Content Include="Images\favicon.png" />
+    <Content Include="Images\fdinterest.png" />
+    <Content Include="Images\gettyimages-173932685-612x612.jpg" />
+    <Content Include="Images\i1.jpg" />
+    <Content Include="Images\i2.jpg" />
+    <Content Include="Images\i3.jpg" />
+    <Content Include="Images\interestrate.png" />
+    <Content Include="Images\light.png" />
+    <Content Include="Images\logonewnew.png" />
+    <Content Include="Images\nameicon.png" />
+    <Content Include="Images\password11icon.png" />
+    <Content Include="Images\pic.png" />
+    <Content Include="Images\policiesbg.png" />
+    <Content Include="Images\sbinterest.png" />
+    <Content Include="Images\servicebg.jpg" />
+    <Content Include="Images\success.jpg" />
+    <Content Include="Images\success.png" />
+    <Content Include="Images\telephone.png" />
+    <Content Include="Images\texture.png" />
+    <Content Include="Images\underconstruction.jpg" />
+    <Content Include="Images\usericon.jpg" />
+    <Content Include="Images\values.jpg" />
+    <Content Include="Images\vision.jpg" />
     <Content Include="loginpage.aspx" />
     <Content Include="OurTeam.aspx" />
+    <Content Include="policies.aspx" />
     <Content Include="registration.aspx" />
     <Content Include="pngtree-business-male-icon-vector-png-image_916468.jpg" />
+    <Content Include="ServiceRequest.aspx" />
     <Content Include="Services.aspx" />
+    <Content Include="telephonebillpay.aspx" />
     <Content Include="Transaction.aspx" />
     <Content Include="UpdateProfile.aspx" />
     <Content Include="Web.config" />
@@ -100,6 +175,13 @@
     </Compile>
     <Compile Include="AboutUs.aspx.designer.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admindashboard.aspx.cs">
+      <DependentUpon>admindashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admindashboard.aspx.designer.cs">
+      <DependentUpon>admindashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminLogin.aspx.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>
@@ -122,6 +204,20 @@
     <Compile Include="BillManager.aspx.designer.cs">
       <DependentUpon>BillManager.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ChequeRequest.aspx.cs">
+      <DependentUpon>ChequeRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChequeRequest.aspx.designer.cs">
+      <DependentUpon>ChequeRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CreateNewAccount.aspx.cs">
       <DependentUpon>CreateNewAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -129,12 +225,33 @@
     <Compile Include="CreateNewAccount.aspx.designer.cs">
       <DependentUpon>CreateNewAccount.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Credit_Card_Request.aspx.cs">
+      <DependentUpon>Credit_Card_Request.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Credit_Card_Request.aspx.designer.cs">
+      <DependentUpon>Credit_Card_Request.aspx</DependentUpon>
+    </Compile>
     <Compile Include="cust_after_login.aspx.cs">
       <DependentUpon>cust_after_login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="cust_after_login.aspx.designer.cs">
       <DependentUpon>cust_after_login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Debit_Card_Request.aspx.cs">
+      <DependentUpon>Debit_Card_Request.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Debit_Card_Request.aspx.designer.cs">
+      <DependentUpon>Debit_Card_Request.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="electricitybillpay.aspx.cs">
+      <DependentUpon>electricitybillpay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="electricitybillpay.aspx.designer.cs">
+      <DependentUpon>electricitybillpay.aspx</DependentUpon>
     </Compile>
     <Compile Include="homepage.aspx.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
@@ -157,6 +274,13 @@
     <Compile Include="OurTeam.aspx.designer.cs">
       <DependentUpon>OurTeam.aspx</DependentUpon>
     </Compile>
+    <Compile Include="policies.aspx.cs">
+      <DependentUpon>policies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="policies.aspx.designer.cs">
+      <DependentUpon>policies.aspx</DependentUpon>
+    </Compile>
     <Compile Include="registration.aspx.cs">
       <DependentUpon>registration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -165,12 +289,26 @@
       <DependentUpon>registration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceRequest.aspx.cs">
+      <DependentUpon>ServiceRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServiceRequest.aspx.designer.cs">
+      <DependentUpon>ServiceRequest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Services.aspx.cs">
       <DependentUpon>Services.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Services.aspx.designer.cs">
       <DependentUpon>Services.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="telephonebillpay.aspx.cs">
+      <DependentUpon>telephonebillpay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="telephonebillpay.aspx.designer.cs">
+      <DependentUpon>telephonebillpay.aspx</DependentUpon>
     </Compile>
     <Compile Include="Transaction.aspx.cs">
       <DependentUpon>Transaction.aspx</DependentUpon>

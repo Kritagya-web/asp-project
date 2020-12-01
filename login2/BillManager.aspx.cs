@@ -18,7 +18,13 @@ namespace login2
 
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            ///  Response.Write(DateTime.Now.AddYears(100).ToShortDateString());
+            // Response.Write(DateTime.Now.ToShortDateString());
+
+            RangeValidator1.MaximumValue = DateTime.Now.AddYears(100).ToShortDateString();
+            RangeValidator1.MinimumValue = DateTime.Now.ToShortDateString();
+              RangeValidator2.MaximumValue = DateTime.Now.AddYears(100).ToShortDateString();
+            RangeValidator2.MinimumValue = DateTime.Now.ToShortDateString();
 
         }
         public static int sendEmail(string subject, string body, string name, string recieverEmail)
