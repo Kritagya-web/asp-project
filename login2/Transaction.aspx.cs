@@ -31,10 +31,10 @@ namespace login2
         static int OTP;
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*string name = Request.QueryString["custid"];
+            string name = Request.QueryString["custid"];
 
            custid = name;
-            */
+            
 
             //  Response.Write(date);
             //        detailstable.Visible = false;
@@ -193,7 +193,7 @@ namespace login2
                 else
                 {
                     Label2.Text = "";
-                    Button2.Visible = true;
+                  //  Button2.Visible = true;
                     AmountToSend.Text = Amount.Text;
                 }
 

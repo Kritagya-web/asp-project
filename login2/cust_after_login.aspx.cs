@@ -82,18 +82,20 @@ namespace login2
         }
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("UpdateProfile.aspx?custid=" + Label2.Text + "");
+            string name = Request.QueryString["custid"];
+            Response.Redirect("UpdateProfile.aspx?custid=" + name + "");
 
         }
         protected void Button4_Click(object sender, EventArgs e)
         {
-          
-                       Response.Redirect("Transaction.aspx?custid=" + Label2.Text + "");
+            string name = Request.QueryString["custid"];
+            Response.Redirect("Transaction.aspx?custid=" + name + "");
         }
         protected void Button5_Click(object sender, EventArgs e)
         {
+            string name = Request.QueryString["custid"];
 
-            Response.Redirect("Services.aspx?custid=" + Label2.Text + "");
+            Response.Redirect("Services.aspx?custid=" + name + "");
         }
 
     }

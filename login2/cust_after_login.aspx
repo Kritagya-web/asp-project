@@ -24,20 +24,24 @@
             <span class="loader1">Loading</span>
          </div>
          <div class="top">
-            <nav class="navbar navbar-expand-lg stick">
+           <nav class="navbar navbar-expand-lg stick">
   <a class="navbar-brand" href="#"><img src="logonewnew.png" /></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-link active " href="#"><i class="fa fa-home" aria-hidden="true" ></i>Home <span class="sr-only">(current)</span></a>
-      <a class="nav-link " href="#"><i class="fa fa-users"></i>About Us</a>
-      <a class="nav-link " href="#"><i class="fa fa-book"></i>Our Policies</a>
+     <asp:HyperLink runat="server" NavigateUrl="homepage.aspx" class="nav-link "><i class="fa fa-home"></i>Home</asp:HyperLink>
+      <asp:HyperLink runat="server" NavigateUrl="AboutUs.aspx" class="nav-link "><i class="fa fa-users"></i>About Us</asp:HyperLink>
+   
+    <asp:HyperLink runat="server" NavigateUrl="AdminLogin.aspx" class="nav-link "><i class="fa fa-users"></i>Admin Login</asp:HyperLink>
+    <asp:HyperLink runat="server" NavigateUrl="policies.aspx" class="nav-link "><i class="fa fa-book"></i>Our Policies</asp:HyperLink>
     
-      <a class="nav-link " href="#"><i class="fa fa-address-book"></i>Reach Us</a>
-      <a class="nav-link " href="#"><i class="fa fa-question-circle"></i>Queries & Suggestions</a>
-        
+      <asp:HyperLink runat="server" NavigateUrl="OurTeam.aspx" class="nav-link "><i class="fa fa-address-book"></i>Reach Us</asp:HyperLink>
+      <asp:HyperLink runat="server" NavigateUrl="ContactUs.aspx" class="nav-link "><i class="fa fa-address-book"></i>Contact US</asp:HyperLink>
+
+     
+     
     </div>
   </div>
 </nav>
@@ -55,6 +59,9 @@
             <asp:Button ID="Button5" class="mainButtons"  runat="server" Text="All Services" OnClick="Button5_Click" />
                      <asp:Button ID="Button3" class="mainButtons" runat="server" Text="Back to Home Page" CausesValidation="False" PostBackUrl="homepage.aspx" Visible="false"/>
         <br />
+            <div class="next mt-10">
+             <asp:Button ID="Button6" class="mainButtons"  runat="server" Text="Logout"  PostBackUrl="~/loginpage.aspx" />
+                </div>
         <br />
 
         <br />

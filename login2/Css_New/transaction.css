@@ -148,6 +148,9 @@ input[type=text] {
 .check {
     position: relative;
 }
+#Button2{
+    margin-left:89px;
+}
 
 #loading { /*loader starts*/
     display: flex;

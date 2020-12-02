@@ -9,7 +9,12 @@
 a img {
     width: 227px;
 }
-
+.next{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:5px;
+}
 .navbar {
     background-color: black;
     position: sticky;

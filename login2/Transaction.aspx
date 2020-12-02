@@ -120,7 +120,7 @@
                     <asp:Button ID="Button5" class="myButton" runat="server" OnClick="Button5_Click" Text="Generate OTP" Visible="False" />
                     <br />
                     <br />
-                    <asp:TextBox ID="OTPTextBox" runat="server" Visible="False"></asp:TextBox>
+                    <asp:TextBox ID="OTPTextBox" runat="server" Visible="False" Text="Enter OTP here" ForeColor="Red"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="OTPTextBox" Display="Dynamic" ErrorMessage="This is Required." ForeColor="Red" SetFocusOnError="True" ValidationGroup="otp"></asp:RequiredFieldValidator>
                     <br />
                     <br />

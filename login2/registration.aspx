@@ -17,10 +17,17 @@
     <title> Registeration Page- ESB</title>
     <script>
         function getModal() {
-            p = document.getElementById('myModal');
-          
-            p.innerText = "You have been registered successfully.";
-    </script>
+            t = document.getElementById("Label6");
+            let flag = t.innerText();
+            if (flag == 1) {
+                p = document.getElementById('myModal');
+
+                p.innerText = "You have been registered successfully.";
+            }
+            else {
+                t.innerText = "Please Check Again";
+            }
+                </script>
     
 </head>
         <link rel="icon" 
@@ -92,6 +99,7 @@
                     </td>
                 </tr>
             </table>
+                <asp:Label ID="Label6" runat="server" Text="" Visible="False"></asp:Label>
 
             <asp:Button ID="Button1" runat="server" Text="Register Now" Width="150px" height="30px" OnClick="Button1_Click" onClientClick="getModal()"  data-toggle="modal" href="#ignismyModal"  />
             
